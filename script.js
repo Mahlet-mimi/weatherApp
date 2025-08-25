@@ -2,9 +2,20 @@ function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temperature");
   let temperature = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#current-city");
-  console.log(response.data)
+  let description = document.querySelector("#description")
+  let humidity = document.querySelector("#humidity");
+  let windSpeed = document.querySelector("#wind-speed");
+  let timeElement = document.querySelector("#time");
+  let date = new Date(response.data.time * 1000);
+  let iconElement = document.querySelector("#icon");
+
   cityElement.innerHTML = response.data.city;
   temperatureElement.innerHTML = temperature;
+  timeElement.innerHTML = formatDate(date);
+  description.innerHTML = response.data.condition.description;
+  humidity.innerHTML = ` ${response.data.temperature.humidity}%`;
+  windSpeed.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"/>`;
 }
 
 function search(event) {
