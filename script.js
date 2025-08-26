@@ -102,4 +102,4 @@ let forecastElement = document.querySelector("#forecast");
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
-searchCity("Addis Ababa"); 
+searchCity("Addis Abeba"); 
