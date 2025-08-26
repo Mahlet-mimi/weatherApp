@@ -47,16 +47,15 @@ function formatDate(date) {
 
 function searchCity(city) {
   let apiKey = "b2a5adcct04b33178913oc335f405433";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
+  let apiUrl =  `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
 function search(event) {
   event.preventDefault();
-  let searchInputElement = document.querySelector("#search-input");
+  let searchInput = document.querySelector("#search-input");
   
-  searchCity(searchInputElement.value);
+  searchCity(searchInput.value);
 }
 
 function formatDay(timestamp) {
@@ -68,8 +67,7 @@ function formatDay(timestamp) {
 
 function getForecast(city) {
   let apiKey = "b2a5adcct04b33178913oc335f405433";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-
+   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -81,10 +79,9 @@ function displayForecast(response) {
       forecastHtml = 
         forecastHtml +
         `
-      <div class="weather-forecast-day">
-        <div class="weather-forecast-date">${formatDay(day.time)}</div>
-
-        <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
+       <div class="weather-forecast-day">
+          <div class="weather-forecast-date">${formatDay(day.time)}</div>
+          <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
         <div class="weather-forecast-temperatures">
           <div class="weather-forecast-temperature">
             <strong>${Math.round(day.temperature.maximum)}º</strong>
