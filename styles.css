@@ -67,7 +67,6 @@ main {
 }
 
 .current-weather {
-  width: 630px;
   display: flex;
   margin: 0 auto;
   padding: 10px 15px;
@@ -119,7 +118,6 @@ main {
   display: flex;
   justify-content: space-around;
   border-radius: 10px;
-  width: 660px;
   padding: 40px 0;
   margin: 10px auto 0 auto;
   background: linear-gradient(to right, #5df1f1, #4ef8bf);
